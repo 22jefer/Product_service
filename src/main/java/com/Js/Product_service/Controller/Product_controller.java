@@ -5,6 +5,7 @@
 package com.Js.Product_service.Controller;
 
 import com.Js.Product_service.Entity.Product;
+import com.Js.Product_service.SUPPLIER.Response_supplier;
 import com.Js.Product_service.Service.Product_service;
 import java.util.List;
 import lombok.AllArgsConstructor;
@@ -37,8 +38,8 @@ public class Product_controller {
     }
     
     @GetMapping("/{id}")
-    public Product getProductById(@PathVariable Integer id){
-        return product_service.getProductById(id);
+    public Response_supplier getProductById(@PathVariable Integer id){
+        return product_service.getResponse_supplierById(id);
     }
     
     @GetMapping

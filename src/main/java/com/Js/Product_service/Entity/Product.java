@@ -47,5 +47,8 @@ public class Product {
     
     private String description;
     
+    @Column(nullable = false)
+    private int supplierId;
+    
     
 }
