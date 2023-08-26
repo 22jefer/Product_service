@@ -37,11 +37,16 @@ public class Product_controller {
         return product_service.saveProduct(product);
     }
     
-    @GetMapping("/{id}")
-    public Response_supplier getProductById(@PathVariable Integer id){
-        return product_service.getResponse_supplierById(id);
+    @GetMapping("/response/{id}")
+    public Response_supplier response (@PathVariable Integer id){
+        return product_service.response(id);
     }
     
+    @GetMapping("/{id}")
+    public Product getProductById(@PathVariable Integer id){
+        return product_service.getProductById(id);
+    }
+        
     @GetMapping
     public List<Product> getProduct(){
         return product_service.AllProduct();

@@ -53,12 +53,10 @@ public class Product_service {
     public void deletedProductById(Integer id){
         product_repository.deleteById(id);
     }
-    
-    public Response_supplier getResponse_supplierById(Integer id){
+
+    public Supplier response_supplier(Integer id){
         
-        Product product = new Product();
-        Response_supplier response_supplier = new Response_supplier();
-        product = product_repository.findById(id).get();
+        Product product = product_repository.findById(id).get();
         
         ResponseEntity<Supplier> responseEntity = restTemplate.getForEntity(
                 "http://localhost:8081/api/supplier/"+product.getSupplierId(), 
@@ -66,11 +64,18 @@ public class Product_service {
         
         Supplier supplier = responseEntity.getBody();
         
+        return supplier;
+    }
+    
+    public Response_supplier response (Integer id){
+        
+        Response_supplier response_supplier = new Response_supplier();
+        Product product = product_repository.findById(id).get();
+        
+        response_supplier.setSupplier(response_supplier(id));
         response_supplier.setProduct(product);
-        response_supplier.setSupplier(supplier);
         
         return response_supplier;
-        
     }
     
 }
