@@ -4,10 +4,13 @@
  */
 package com.Js.Product_service.Repository;
 
+import com.Js.Product_service.Entity.Product;
+import org.springframework.data.jpa.repository.JpaRepository;
+
 /**
  *
  * @author Asus
  */
-public interface Product_repository {
+public interface Product_repository extends JpaRepository<Product, Integer>{
     
 }
